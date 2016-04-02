@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="net.stonyvin.MainForm">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="764" height="655"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="eb286" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="bc820">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="500" height="400"/>
+                <preferred-size width="600" height="400"/>
+              </grid>
+            </constraints>
+            <properties>
+              <alignmentX value="0.5"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="2fff" class="javax.swing.JTextArea" binding="outputField">
+                <constraints/>
+                <properties>
+                  <editable value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <splitpane id="50f2f">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="20"/>
+              </grid>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="1d829" class="javax.swing.JTextField" binding="inputField">
+                <constraints>
+                  <splitpane position="left"/>
+                </constraints>
+                <properties>
+                  <minimumSize width="450" height="41"/>
+                  <preferredSize width="530" height="41"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="72ac1" class="javax.swing.JButton" binding="sendButton">
+                <constraints>
+                  <splitpane position="right"/>
+                </constraints>
+                <properties>
+                  <maximumSize width="70" height="41"/>
+                  <minimumSize width="60" height="31"/>
+                  <preferredSize width="70" height="41"/>
+                  <text value="Send"/>
+                </properties>
+              </component>
+            </children>
+          </splitpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
