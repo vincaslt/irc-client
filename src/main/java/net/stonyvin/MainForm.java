@@ -16,6 +16,7 @@ public class MainForm extends JFrame implements WindowListener {
     private JButton sendButton;
     private JPanel rootPanel;
     private IRCLib irc;
+    private CommandHandler commandHandler;
 
     public MainForm() {
         super("IRC Client");
@@ -36,6 +37,7 @@ public class MainForm extends JFrame implements WindowListener {
             irc = new IRCLib(hostname, username);
             irc.getConnection().nickCommand();
             irc.getConnection().userCommand(name);
+            commandHandler = new CommandHandler(irc);
         } catch (Exception e) {
             Object[] options = { "Retry", "Exit" };
             int n = JOptionPane.showOptionDialog(this, e.getStackTrace(), "Cannot connect",
@@ -55,7 +57,10 @@ public class MainForm extends JFrame implements WindowListener {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String message = inputField.getText();
+                if (!commandHandler.handle(message)) {
+                    irc.getSending().privMsgCommand(irc.getChannel().getJoinedChannels(), message);
+                }
             }
         });
 
