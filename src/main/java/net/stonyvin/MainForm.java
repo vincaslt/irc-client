@@ -60,6 +60,7 @@ public class MainForm extends JFrame implements WindowListener {
                 String message = inputField.getText();
                 if (!commandHandler.handle(message)) {
                     irc.getSending().privMsgCommand(irc.getChannel().getJoinedChannels(), message);
+                    inputField.setText("");
                 }
             }
         });

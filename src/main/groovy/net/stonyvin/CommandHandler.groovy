@@ -3,6 +3,8 @@ package net.stonyvin
 class CommandHandler {
     private static final String COMMAND_JOIN = "join"
     private static final String COMMAND_LIST = "list"
+    private static final String COMMAND_WHO = "who"
+    private static final String COMMAND_NAMES = "names"
 
     IRCLib irc
 
@@ -15,6 +17,7 @@ class CommandHandler {
             func(splitCommand)
         } catch (Exception e) {
             println("ERROR: invalid parameters!")
+            e.printStackTrace()
         }
     }
 
@@ -34,6 +37,12 @@ class CommandHandler {
                 break
             case COMMAND_LIST:
                 safeCall(splitCommand) { irc.channel.listCommand() }
+                break
+            case COMMAND_WHO:
+                safeCall(splitCommand) { irc.user.whoCommand(it[1]) }
+                break
+            case COMMAND_NAMES:
+                safeCall(splitCommand) { List<String> c -> irc.channel.namesCommand(c[1]?.tokenize(',')) }
                 break
         }
 
